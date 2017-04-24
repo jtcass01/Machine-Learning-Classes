@@ -36,6 +36,8 @@ w = np.random.randn(D+1)
 z = Xb.dot(w)
 print("z",z)
 
+# Remember: This particular sigmoid puts all values in between 0 and 1 with the probablity of a sample belonging to either
+# class at 50%
 def sigmoid(z):
     return 1/(1+np.exp(-z))
 
