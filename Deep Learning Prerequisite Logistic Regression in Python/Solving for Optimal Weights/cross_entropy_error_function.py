@@ -16,8 +16,8 @@ X[50:, :] = X[50:, :] + np.ones((50,D))
 
 print("X", X)
 
-plt.plot(X[:,0], label = "Class 1")
-plt.plot(X[:,1], label = "Class 2")
+plt.scatter(X[:50,0],X[:50,1], label = "Class 1")
+plt.scatter(X[50:,0],X[50:,1], label = "Class 2")
 plt.legend()
 plt.show()
 
@@ -36,8 +36,6 @@ w = np.random.randn(D+1)
 z = Xb.dot(w)
 print("z",z)
 
-# Remember: This particular sigmoid puts all values in between 0 and 1 with the probablity of a sample belonging to either
-# class at 50%
 def sigmoid(z):
     return 1/(1+np.exp(-z))
 
