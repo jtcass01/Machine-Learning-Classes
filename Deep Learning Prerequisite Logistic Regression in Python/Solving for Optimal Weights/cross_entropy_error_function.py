@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 N = 100
 D = 2
@@ -12,6 +13,13 @@ X[:50, :] = X[:50,:] - 2*np.ones((50,D))
 #Now I can do the same thing for the other class, except I am going to center
 # That data at x=2, y=2
 X[50:, :] = X[50:, :] + np.ones((50,D))
+
+print("X", X)
+
+plt.plot(X[:,0], label = "Class 1")
+plt.plot(X[:,1], label = "Class 2")
+plt.legend()
+plt.show()
 
 #Now I am going to set the first 50 to zero and the second 50 to 1
 T = np.array([0]*50 + [1]*50)
@@ -34,6 +42,13 @@ def sigmoid(z):
 Y = sigmoid(z)
 print("Y",Y)
 
+plt.plot(Y, label = "Logistic Output")
+plt.plot(T, label = "Targets")
+plt.title("Open Form")
+plt.legend()
+plt.show()
+
+
 def cross_entropy(T, Y):
     E = 0
     for i in range(0, N):
@@ -55,3 +70,9 @@ Y = sigmoid(z)
 print("z (closed form)",z)
 print("Y (closed form)",Y)
 print("cross_entropy (closed form solution)", cross_entropy(T, Y))
+
+plt.plot(Y, label = "Logistic Output")
+plt.plot(T, label = "Targets")
+plt.title("Closed Form")
+plt.legend()
+plt.show()
