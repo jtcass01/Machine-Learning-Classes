@@ -15,5 +15,8 @@ print('\n')
 cal = A.sum(axis=0) # The axis parameter tells it to sum over the columns, not the rows
 print(cal, 'total calories per column')
 print('\n')
-percentages = (A/cal.reshape(1,4))  *   100
+
+
+percentages = (A/cal.reshape(1,4))  *   100 #Note: the reshape command here is redundant and not needed.
+                                            #professor suggested using the command anyways to be sure when unsure.
 print(percentages, 'caloric percentages with respect to column')
